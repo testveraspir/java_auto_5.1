@@ -63,8 +63,9 @@ public class CardDeliveryTest {
         $("[placeholder='Город']").setValue(DataGenerator.generateCity("ru"));
         $("[type='tel']").sendKeys(Keys.CONTROL, "a");
         $("[type='tel']").sendKeys(Keys.DELETE);
+        $("[type='tel']").setValue("22.01.2000");
         $(byText("Запланировать")).click();
-        $(".calendar-input__custom-control ").shouldBe(exactText("Неверно введена дата"));
+        $(".calendar-input__custom-control ").shouldBe(exactText("Заказ на выбранную дату невозможен"));
     }
 
     @Test
