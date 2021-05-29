@@ -42,7 +42,7 @@ public class CardDeliveryTest {
         $(withText("У вас уже запланирована встреча на другую дату. Перепланировать?")).shouldBe(visible, Duration.ofSeconds(60000));
         $$(".button__text").find(text("Перепланировать")).click();
         $(byText("Успешно!")).shouldBe(visible, Duration.ofSeconds(60000));
-        $$(".notification__content").findBy(text("Встреча успешно запланирована на " + "22.02.2020")).shouldBe(visible, Duration.ofSeconds(60000));
+        $$(".notification__content").findBy(text("Встреча успешно запланирована на " + DataGenerator.generateDate(daysToAddForSecondMeeting))).shouldBe(visible, Duration.ofSeconds(60000));
     }
 
     @Test
