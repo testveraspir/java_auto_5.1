@@ -18,8 +18,7 @@ public class DataGenerator {
         LocalDate currentDate = LocalDate.now();
         currentDate = currentDate.plusDays(shift);
         String dateFormat = currentDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        String date = String.valueOf(dateFormat);
-        return date;
+        return dateFormat;
     }
 
     public static String generateCity(String locale) {
@@ -38,6 +37,12 @@ public class DataGenerator {
         Faker faker = new Faker(new Locale(locale));
         String phone = faker.phoneNumber().phoneNumber();
         return phone;
+    }
+
+    public static String generateInvalidCity(String locale) {
+        Faker faker = new Faker(new Locale(locale));
+        String city = faker.address().country();
+        return city;
     }
 
 }
